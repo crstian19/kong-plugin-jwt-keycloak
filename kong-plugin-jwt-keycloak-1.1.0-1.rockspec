@@ -8,14 +8,18 @@ version = "1.1.0-1"
 local pluginName = package:match("^kong%-plugin%-(.+)$")  -- "jwt-keycloak"
 supported_platforms = {"linux", "macosx"}
 
+local github_account_name = "OptareSolutions"
+local github_repo_name = "kong-plugin-jwt-keycloak"
+local github_tag = "master"
+
 source = {
-  url = "git://github.com/saroha87/kong-plugin-jwt-keycloak",
-  tag = "master",
-  dir = "kong-plugin-jwt-keycloak"
+    url = "git://github.com/"..github_account_name.."/"..github_repo_name,
+    tag = github_tag,
+    dir = github_repo_name
 }
 description = {
   summary = "A Kong plugin that will validate tokens issued by keycloak",
-  homepage = "https://github.com/gbbirkisson/kong-plugin-jwt-keycloak",
+  homepage = "https://github.com/"..github_account_name.."/"..github_repo_name,
   license = "Apache 2.0"
 }
 dependencies = {
