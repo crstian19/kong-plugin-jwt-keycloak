@@ -1,4 +1,3 @@
-local BasePlugin = require "kong.plugins.base_plugin"
 local constants = require "kong.constants"
 local jwt_decoder = require "kong.plugins.jwt.jwt_parser"
 local cjson = require("cjson")
@@ -13,19 +12,20 @@ local validate_client_roles = require("kong.plugins.jwt-keycloak.validators.role
 
 local re_gmatch = ngx.re.gmatch
 
-local JwtKeycloakHandler = BasePlugin:extend()
+local JwtKeycloakHandler = {
+    VERSION = "1.2.0"
+  }
 
 local priority_env_var = "JWT_KEYCLOAK_PRIORITY"
 local priority
 if os.getenv(priority_env_var) then
     priority = tonumber(os.getenv(priority_env_var))
 else
-    priority = 1005
+    priority = 950
 end
 kong.log.debug('JWT_KEYCLOAK_PRIORITY: ' .. priority)
 
 JwtKeycloakHandler.PRIORITY = priority
-JwtKeycloakHandler.VERSION = "1.1.0"
 
 function table_to_string(tbl)
     local result = ""
@@ -164,9 +164,6 @@ local function retrieve_token(conf)
     end
 end
 
-function JwtKeycloakHandler:new()
-    JwtKeycloakHandler.super.new(self, "jwt-keycloak")
-end
 
 local function load_consumer(consumer_id, anonymous)
     local result, err = kong.db.consumers:select { id = consumer_id }
@@ -438,8 +435,6 @@ local function do_authentication(conf)
 end
 
 function JwtKeycloakHandler:access(conf)
-    JwtKeycloakHandler.super.access(self)
-
     kong.log.debug('Calling access()')
     -- check if preflight request and whether it should be authenticated
     if not conf.run_on_preflight and kong.request.get_method() == "OPTIONS" then
