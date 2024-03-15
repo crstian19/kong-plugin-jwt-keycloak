@@ -13,7 +13,7 @@ local validate_client_roles = require("kong.plugins.jwt-keycloak.validators.role
 local re_gmatch = ngx.re.gmatch
 
 local JwtKeycloakHandler = {
-    VERSION = "1.2.0"
+    VERSION = "1.2.1"
   }
 
 local priority_env_var = "JWT_KEYCLOAK_PRIORITY"
@@ -273,7 +273,7 @@ local function validate_signature(conf, jwt, second_call)
     end
 
     -- We could not validate signature, try to get a new keyset?
-    since_last_update = socket.gettime() - public_keys.updated_at
+    local since_last_update = socket.gettime() - public_keys.updated_at
     if not second_call and since_last_update > conf.iss_key_grace_period then
         kong.log.debug('Could not validate signature. Keys updated last ' .. since_last_update .. ' seconds ago')
         kong.cache:invalidate_local(issuer_cache_key)
