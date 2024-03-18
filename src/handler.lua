@@ -239,6 +239,7 @@ local function get_keys(well_known_endpoint)
 
     local decoded_keys = {}
     for i, key in ipairs(keys) do
+        key = key:gsub("+", "-"):gsub("/", "_")
         decoded_keys[i] = jwt_decoder:base64_decode(key)
     end
 
