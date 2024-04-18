@@ -1,6 +1,6 @@
 package = "kong-plugin-jwt-keycloak"
 
-version = "1.2.1-1"
+version = "1.2.1-2"
 -- The version '0.1.0' is the source code version, the trailing '1' is the version of this rockspec.
 -- whenever the source version changes, the rockspec should be reset to 1. The rockspec version is only
 -- updated (incremented) when this file changes, but the source remains the same.
@@ -10,7 +10,7 @@ supported_platforms = {"linux", "macosx"}
 
 local github_account_name = "OptareSolutions"
 local github_repo_name = "kong-plugin-jwt-keycloak"
-local github_tag = "master"
+local github_tag = version -- we should push a tag matching the version
 
 source = {
     url = "git://github.com/"..github_account_name.."/"..github_repo_name,
