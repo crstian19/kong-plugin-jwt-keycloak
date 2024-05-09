@@ -256,7 +256,7 @@ local function validate_signature(conf, jwt, second_call)
     local issuer_cache_key = 'issuer_keys_' .. jwt.claims.iss
     local well_known_endpoint
     if conf.public_keys_url then
-        well_known_endpoint = conf.public_keys_url
+        well_known_endpoint = string.format(conf.well_known_template, conf.public_keys_url)
     else
         well_known_endpoint = keycloak_keys.get_wellknown_endpoint(conf.well_known_template, jwt.claims.iss)
     end
