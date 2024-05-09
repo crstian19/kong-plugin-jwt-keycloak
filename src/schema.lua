@@ -84,6 +84,13 @@ return {
             }
           },
           {
+            public_keys_url = {
+              type = "string",
+              required = false,
+              default = nil,
+            }
+          }
+          {
             iss_key_grace_period = {
               type = "number",
               default = 10,
