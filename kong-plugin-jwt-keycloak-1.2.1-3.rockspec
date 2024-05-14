@@ -8,7 +8,7 @@ version = "1.2.1-3"
 local pluginName = package:match("^kong%-plugin%-(.+)$")  -- "jwt-keycloak"
 supported_platforms = {"linux", "macosx"}
 
-local github_account_name = "OptareSolutions"
+local github_account_name = "Crstian19"
 local github_repo_name = "kong-plugin-jwt-keycloak"
 local github_tag = version -- we should push a tag matching the version
 
