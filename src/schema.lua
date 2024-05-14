@@ -89,7 +89,7 @@ return {
               required = false,
               default = nil,
             }
-          }
+          },
           {
             iss_key_grace_period = {
               type = "number",
