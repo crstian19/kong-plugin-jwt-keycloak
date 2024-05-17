@@ -84,7 +84,7 @@ return {
             }
           },
           {
-            public_keys_url = {
+            public_keys_host = {
               type = "string",
               required = false,
               default = nil,
