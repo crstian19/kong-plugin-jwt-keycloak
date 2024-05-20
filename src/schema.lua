@@ -85,7 +85,8 @@ return {
           },
           {
             public_keys_host = {
-              type = typedefs.host_with_optional_port,
+              type = "string",
+              custom_validator = validate_host_with_optional_port,
               required = false,
               default = nil
             }
