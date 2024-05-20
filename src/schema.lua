@@ -84,10 +84,10 @@ return {
             }
           },
           {
-            public_keys_url = {
-              type = "string",
+            public_keys_host = {
+              type = typedefs.host_with_optional_port,
               required = false,
-              default = nil,
+              default = nil
             }
           },
           {
