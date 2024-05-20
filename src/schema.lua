@@ -85,9 +85,13 @@ return {
           },
           {
             public_keys_host = {
-              type = "string",
+              type = typedefs.host_with_optional_port,
               required = false,
-              default = nil,
+              default = nil
+            }
+          },
+              required = false,
+              default = nil
             }
           },
           {
