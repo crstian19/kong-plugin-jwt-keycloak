@@ -84,7 +84,7 @@ return {
             }
           },
           {
-            public_keys_host = typedefs.host_with_optional_port
+            public_keys_url = typedefs.url
           },
           {
             iss_key_grace_period = {
