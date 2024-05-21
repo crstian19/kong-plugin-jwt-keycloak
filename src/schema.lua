@@ -84,15 +84,7 @@ return {
             }
           },
           {
-            public_keys_host = {
-              type = typedefs.host_with_optional_port,
-              required = false,
-              default = nil
-            }
-          },
-              required = false,
-              default = nil
-            }
+            public_keys_url = typedefs.url
           },
           {
             iss_key_grace_period = {
